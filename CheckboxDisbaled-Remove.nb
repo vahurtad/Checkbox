@@ -1,0 +1,760 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29081,        752]
+NotebookOptionsPosition[     28410,        725]
+NotebookOutlinePosition[     28759,        740]
+CellTagsIndexPosition[     28716,        737]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "Examples", " ", "of", " ", "checkbox", " ", "bar", 
+       "\[IndentingNewLine]", "1"}], ")"}], " ", "disabling", " ", "other", 
+     " ", "boxes", " ", "when", " ", "one", " ", "is", " ", 
+     RowBox[{"checked", ".", " ", "you"}], " ", "are", " ", "able", " ", "to",
+      " ", "unckeck", " ", "and", " ", "use", " ", "another", " ", "box", 
+     "\[IndentingNewLine]", "\t", "2"}], ")"}], " ", "checking", " ", "more", 
+   " ", "than", " ", "one", " ", "will", " ", "uncheck", " ", "last", " ", 
+   "one", " ", "check", " ", "so", " ", "there", " ", "will", " ", "be", " ", 
+   "only", " ", "one", " ", "checked"}], "\[IndentingNewLine]", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.73800279926287*^9, 3.738002888214884*^9}},
+ ExpressionUUID -> "c3c9537c-e3f2-4105-a4e6-392383d32670"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"1", ")"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MaxNumberifChecked", " ", "=", " ", "1"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"labels", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<a\>\"", ",", "\"\<b\>\"", ",", "\"\<c\>\"", ",", "\"\<d\>\""}], 
+        "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", "arr", ",", "bar", ",", 
+         RowBox[{"n", "=", 
+          RowBox[{"Length", "[", "labels", "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"x", "=", 
+         RowBox[{"Array", "[", 
+          RowBox[{"arr", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"bar", "=", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Checkbox", "[", 
+             RowBox[{
+              RowBox[{"Dynamic", "[", "#", "]"}], ",", 
+              RowBox[{"Enabled", "\[Rule]", 
+               RowBox[{"Dynamic", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Count", "[", 
+                   RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"arr", "[", "i", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", "True"}], 
+                   "]"}], "<", "MaxNumberifChecked"}], "||", 
+                 RowBox[{"TrueQ", "[", "#", "]"}]}], "]"}]}]}], "]"}], "&"}], 
+           "/@", "x"}], ")"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", "initialize", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Do", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"arr", "[", "i", "]"}], "=", "False"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"return", " ", "the", " ", "bar"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Row", "[", 
+         RowBox[{
+          RowBox[{"Riffle", "[", 
+           RowBox[{"bar", ",", "labels"}], "]"}], ",", 
+          RowBox[{"Spacer", "[", "10", "]"}]}], "]"}]}]}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7380022568204784`*^9, 3.738002314211151*^9}, 
+   3.7380027949036236`*^9, {3.7380028930428715`*^9, 3.7380028986677065`*^9}, {
+   3.7692053761888943`*^9, 3.7692054038191605`*^9}},
+ ExpressionUUID -> "50aa1d1a-3c01-495d-bcc9-a21d4bab7431"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`x$$ = {
+  False, False, False, False}, $CellContext`arr$$, $CellContext`bar$$ = {
+   Checkbox[
+    Dynamic[
+     $CellContext`arr$$[1]], Enabled -> Dynamic[
+      Or[Count[
+         Table[
+          $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+       TrueQ[
+        $CellContext`arr$$[1]]]]], 
+   Checkbox[
+    Dynamic[
+     $CellContext`arr$$[2]], Enabled -> Dynamic[
+      Or[Count[
+         Table[
+          $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+       TrueQ[
+        $CellContext`arr$$[2]]]]], 
+   Checkbox[
+    Dynamic[
+     $CellContext`arr$$[3]], Enabled -> Dynamic[
+      Or[Count[
+         Table[
+          $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+       TrueQ[
+        $CellContext`arr$$[3]]]]], 
+   Checkbox[
+    Dynamic[
+     $CellContext`arr$$[4]], Enabled -> Dynamic[
+      Or[Count[
+         Table[
+          $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+       TrueQ[
+        $CellContext`arr$$[4]]]]]}, $CellContext`n$$ = 4}, 
+  TemplateBox[{InterpretationBox[
+     StyleBox[
+      GraphicsBox[{}, ImageSize -> {10, 0}, BaselinePosition -> Baseline], 
+      "CacheGraphics" -> False], 
+     Spacer[10]],CheckboxBox[
+     Dynamic[
+      $CellContext`arr$$[1]], Enabled -> Dynamic[
+       Or[Count[
+          Table[
+           $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+        TrueQ[
+         $CellContext`arr$$[1]]]]],"\"a\"",CheckboxBox[
+     Dynamic[
+      $CellContext`arr$$[2]], Enabled -> Dynamic[
+       Or[Count[
+          Table[
+           $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+        TrueQ[
+         $CellContext`arr$$[2]]]]],"\"b\"",CheckboxBox[
+     Dynamic[
+      $CellContext`arr$$[3]], Enabled -> Dynamic[
+       Or[Count[
+          Table[
+           $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+        TrueQ[
+         $CellContext`arr$$[3]]]]],"\"c\"",CheckboxBox[
+     Dynamic[
+      $CellContext`arr$$[4]], Enabled -> Dynamic[
+       Or[Count[
+          Table[
+           $CellContext`arr$$[$CellContext`i], {$CellContext`i, \
+$CellContext`n$$}], True] < $CellContext`MaxNumberifChecked, 
+        TrueQ[
+         $CellContext`arr$$[4]]]]],"\"d\""},
+   "RowWithSeparator"],
+  DynamicModuleValues:>{{DownValues[$CellContext`arr$$] = {HoldPattern[
+         $CellContext`arr$$[1]] :> False, HoldPattern[
+         $CellContext`arr$$[2]] :> False, HoldPattern[
+         $CellContext`arr$$[3]] :> False, HoldPattern[
+         $CellContext`arr$$[4]] :> False}}}]], "Output",
+ CellChangeTimes->{
+  3.769205303408516*^9, {3.7692053686886253`*^9, 3.769205404670342*^9}, 
+   3.7692060708386908`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "arr", ",", "bar", ",", 
+       RowBox[{"n", "=", 
+        RowBox[{"Length", "[", "labels", "]"}]}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"x", "=", 
+       RowBox[{"Array", "[", 
+        RowBox[{"arr", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"bar", "=", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Checkbox", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "#", "]"}], ",", 
+            RowBox[{"Enabled", "\[Rule]", 
+             RowBox[{"Dynamic", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Count", "[", 
+                 RowBox[{
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"arr", "[", "i", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", "True"}], 
+                 "]"}], "<", "1"}], "||", 
+               RowBox[{"TrueQ", "[", "#", "]"}]}], "]"}]}]}], "]"}], "&"}], "/@",
+          "x"}], ")"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"arr", "[", "i", "]"}], "=", "False"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{
+        RowBox[{"Riffle", "[", 
+         RowBox[{"bar", ",", "labels"}], "]"}], ",", 
+        RowBox[{"Spacer", "[", "10", "]"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], "&"}], "@", "labels"}]], "Input",
+ CellChangeTimes->{{3.7380022568204784`*^9, 3.738002332898102*^9}, {
+  3.73800241398947*^9, 3.7380024223017254`*^9}, {3.7380025051134996`*^9, 
+  3.738002590079772*^9}},
+ ExpressionUUID -> "e0860f51-3b90-4650-8d20-a5f3879b664c"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`x$$ = {}, $CellContext`arr$$, \
+$CellContext`bar$$ = {}, $CellContext`n$$ = 0}, 
+  TemplateBox[{InterpretationBox[
+     StyleBox[
+      GraphicsBox[{}, ImageSize -> {10, 0}, BaselinePosition -> Baseline], 
+      "CacheGraphics" -> False], 
+     Spacer[10]]},
+   "RowWithSeparator"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{
+  3.7380025458779287`*^9, 3.7380025909391036`*^9, {3.769205305179493*^9, 
+   3.7692053282687435`*^9}, 3.7692053662589006`*^9},
+ ExpressionUUID -> "2b682b50-845b-46b3-992b-52e09d94afa2"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "2", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"OneCheckbox", "[", 
+    RowBox[{"num_", ",", "range_"}], "]"}], ":=", 
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"Column", "[", 
+      RowBox[{"{", 
+       RowBox[{"CheckboxBar", "[", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"num", ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "[", "#", "]"}], ">", "1"}], ",", 
+               RowBox[{"num", "=", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], ";;"}], "]"}], "]"}]}], ",", 
+               RowBox[{"num", "=", "#"}]}], "]"}], ")"}], "&"}]}], "]"}], ",", 
+         RowBox[{"Range", "[", "range", "]"}]}], "]"}], "}"}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.737859044597249*^9, 3.7378590445982485`*^9}, {
+  3.737859104069665*^9, 3.7378592198332977`*^9}, {3.737859298071225*^9, 
+  3.7378593371738477`*^9}, {3.7378594069297047`*^9, 3.7378594326460457`*^9}, {
+  3.7378594644516687`*^9, 3.737859497921623*^9}, {3.738002910886092*^9, 
+  3.738002912011098*^9}},
+ ExpressionUUID -> "aedad2b3-dfef-4662-a1ad-344b2ba73177"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"using", " ", "#2"}], ")"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"sbmlMenu", "[", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Clear", "[", 
+       RowBox[{"onelvl", ",", "twolvl", ",", "threelvl"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"menu", "=", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<SBML\>\"", ",", "Bold"}], "]"}], ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<\\tLVL\>\"", ",", "Bold"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<1\>\"", ",", "Black"}], "]"}], ",", 
+             RowBox[{"OneCheckbox", "[", 
+              RowBox[{"onelvl", ",", "2"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<2\>\"", ",", "Bold"}], "]"}], ",", 
+             RowBox[{"OneCheckbox", "[", 
+              RowBox[{"twolvl", ",", "5"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<3\>\"", ",", "Bold"}], "]"}], ",", 
+             RowBox[{"OneCheckbox", "[", 
+              RowBox[{"threelvl", ",", "2"}], "]"}]}], "}"}]}], 
+          "\[IndentingNewLine]", "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Left"}], ",", 
+         RowBox[{"Background", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"None", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"2", "\[Rule]", "LightBlue"}], ",", 
+              RowBox[{"3", "\[Rule]", "LightGray"}], ",", 
+              RowBox[{"4", "\[Rule]", "LightBlue"}]}], "}"}]}], "}"}]}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "menu"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.737857486831417*^9, 3.7378575100195904`*^9}, {
+   3.7378575695419164`*^9, 3.7378576909303913`*^9}, {3.737857767769489*^9, 
+   3.737857770055953*^9}, {3.737857928979382*^9, 3.73785793808529*^9}, {
+   3.7378580157221346`*^9, 3.737858017098429*^9}, {3.7378581412323875`*^9, 
+   3.7378582236857624`*^9}, {3.737858312279128*^9, 3.737858351349124*^9}, {
+   3.7378583846421804`*^9, 3.7378584594071484`*^9}, {3.7378584981504226`*^9, 
+   3.73785850030198*^9}, {3.737858540261157*^9, 3.7378585819720907`*^9}, {
+   3.7378586149139843`*^9, 3.7378586566089845`*^9}, {3.7378595407695255`*^9, 
+   3.7378595476109505`*^9}, 3.737859596171134*^9, {3.737859631480705*^9, 
+   3.7378596651581626`*^9}, {3.7378597033417096`*^9, 3.737859780938295*^9}, {
+   3.7378598204895716`*^9, 3.7378598883727093`*^9}, {3.738002205134534*^9, 
+   3.738002206196967*^9}, {3.738002903183195*^9, 3.738002931729237*^9}},
+ ExpressionUUID -> "69180de6-9ab8-4419-9a80-0964f9e818b8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sbmlMenu", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.7692053473086586`*^9, 3.7692053518826027`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     StyleBox["\<\"SBML\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], 
+     StyleBox["\<\"\\tLVL\"\>",
+      StripOnInput->False,
+      FontWeight->Bold]},
+    {
+     StyleBox["\<\"1\"\>",
+      StripOnInput->False,
+      LineColor->GrayLevel[0],
+      FrontFaceColor->GrayLevel[0],
+      BackFaceColor->GrayLevel[0],
+      GraphicsColor->GrayLevel[0],
+      FontColor->GrayLevel[0]], 
+     DynamicModuleBox[{}, 
+      TagBox[GridBox[{
+         {
+          InterpretationBox[
+           StyleBox[
+            RowBox[{GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`onelvl, 1], (If[
+                  Length[#] > 1, $CellContext`onelvl = Part[#, 
+                    Span[-1, All]], $CellContext`onelvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`onelvl, 1, 
+                    False], $CellContext`onelvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["1", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`onelvl, 2], (If[
+                  Length[#] > 1, $CellContext`onelvl = Part[#, 
+                    Span[-1, All]], $CellContext`onelvl = #]& )[
+                   BoxForm`TogglerBarFunction[$CellContext`onelvl, 2, 
+                    False], $CellContext`onelvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["2", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}]}], "Deploy"],
+           CheckboxBar[
+            
+            Dynamic[$CellContext`onelvl, If[
+             Length[#] > 1, $CellContext`onelvl = Part[#, 
+                Span[-1, All]], $CellContext`onelvl = #]& ], {1, 2}]]}
+        },
+        DefaultBaseStyle->"Column",
+        GridBoxAlignment->{"Columns" -> {{Left}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Column"],
+      DynamicModuleValues:>{}]},
+    {
+     StyleBox["\<\"2\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], 
+     DynamicModuleBox[{}, 
+      TagBox[GridBox[{
+         {
+          InterpretationBox[
+           StyleBox[
+            RowBox[{GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`twolvl, 1], (If[
+                  Length[#] > 1, $CellContext`twolvl = Part[#, 
+                    Span[-1, All]], $CellContext`twolvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`twolvl, 1, 
+                    False], $CellContext`twolvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["1", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`twolvl, 2], (If[
+                  Length[#] > 1, $CellContext`twolvl = Part[#, 
+                    Span[-1, All]], $CellContext`twolvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`twolvl, 2, 
+                    False], $CellContext`twolvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["2", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`twolvl, 3], (If[
+                  Length[#] > 1, $CellContext`twolvl = Part[#, 
+                    Span[-1, All]], $CellContext`twolvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`twolvl, 3, 
+                    False], $CellContext`twolvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["3", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`twolvl, 4], (If[
+                  Length[#] > 1, $CellContext`twolvl = Part[#, 
+                    Span[-1, All]], $CellContext`twolvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`twolvl, 4, 
+                    False], $CellContext`twolvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["4", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`twolvl, 5], (If[
+                  Length[#] > 1, $CellContext`twolvl = Part[#, 
+                    Span[-1, All]], $CellContext`twolvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`twolvl, 5, 
+                    False], $CellContext`twolvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["5", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}]}], "Deploy"],
+           CheckboxBar[
+            
+            Dynamic[$CellContext`twolvl, If[
+             Length[#] > 1, $CellContext`twolvl = Part[#, 
+                Span[-1, All]], $CellContext`twolvl = #]& ], {1, 2, 3, 4, 5}]]}
+        },
+        DefaultBaseStyle->"Column",
+        GridBoxAlignment->{"Columns" -> {{Left}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Column"],
+      DynamicModuleValues:>{}]},
+    {
+     StyleBox["\<\"3\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], 
+     DynamicModuleBox[{}, 
+      TagBox[GridBox[{
+         {
+          InterpretationBox[
+           StyleBox[
+            RowBox[{GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`threelvl, 1], (If[
+                  Length[#] > 1, $CellContext`threelvl = Part[#, 
+                    Span[-1, All]], $CellContext`threelvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`threelvl, 1, 
+                    False], $CellContext`threelvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["1", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}], "  ", GridBox[{
+               {
+                CheckboxBox[Dynamic[
+                  MemberQ[$CellContext`threelvl, 2], (If[
+                  Length[#] > 1, $CellContext`threelvl = Part[#, 
+                    Span[-1, All]], $CellContext`threelvl = #]& )[
+                   
+                   BoxForm`TogglerBarFunction[$CellContext`threelvl, 2, 
+                    False], $CellContext`threelvl]& ],
+                 DefaultBaseStyle->"CheckboxBar"], 
+                StyleBox["2", "CheckboxBarLabel",
+                 StripOnInput->False]}
+              },
+              AutoDelete->False,
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.21]}, 
+                  Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}, "RowsIndexed" -> {}}]}], "Deploy"],
+           CheckboxBar[
+            
+            Dynamic[$CellContext`threelvl, If[
+             Length[#] > 1, $CellContext`threelvl = Part[#, 
+                Span[-1, All]], $CellContext`threelvl = #]& ], {1, 2}]]}
+        },
+        DefaultBaseStyle->"Column",
+        GridBoxAlignment->{"Columns" -> {{Left}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Column"],
+      DynamicModuleValues:>{}]}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxBackground->{
+    "Columns" -> {{None}}, 
+     "RowsIndexed" -> {
+      2 -> RGBColor[0.87, 0.94, 1], 3 -> GrayLevel[0.85], 4 -> 
+       RGBColor[0.87, 0.94, 1]}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.7692053499714165`*^9, 3.7692053525588975`*^9}}]
+}, Open  ]]
+},
+WindowSize->{958, 709},
+WindowMargins->{{261, Automatic}, {Automatic, 125}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 888, 18, 88, "Input"],
+Cell[CellGroupData[{
+Cell[1471, 42, 2662, 68, 259, "Input"],
+Cell[4136, 112, 3092, 84, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7265, 201, 1921, 50, 126, "Input"],
+Cell[9189, 253, 573, 13, 30, "Output"]
+}, Open  ]],
+Cell[9777, 269, 1365, 34, 69, "Input"],
+Cell[11145, 305, 3170, 70, 202, "Input"],
+Cell[CellGroupData[{
+Cell[14340, 379, 126, 2, 30, "Input"],
+Cell[14469, 383, 13925, 339, 92, "Output"]
+}, Open  ]]
+}
+]
+*)
+
